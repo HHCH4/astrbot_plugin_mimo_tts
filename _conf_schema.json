@@ -1,0 +1,84 @@
+{
+  "api_key": {
+    "description": "MiMo 平台 API Key",
+    "type": "string"
+  },
+  "api_base": {
+    "description": "API Base URL",
+    "type": "string",
+    "default": "https://api.xiaomimimo.com/v1"
+  },
+  "model": {
+    "description": "TTS 模型",
+    "type": "string",
+    "default": "mimo-v2.5-tts",
+    "options": ["mimo-v2.5-tts", "mimo-v2.5-tts-voicedesign", "mimo-v2.5-tts-voiceclone"]
+  },
+  "audio_format": {
+    "description": "音频格式",
+    "type": "string",
+    "default": "wav",
+    "options": ["wav", "mp3"]
+  },
+  "voice": {
+    "description": "音色 (仅 V2.5-TTS)",
+    "type": "string",
+    "default": "mimo_default"
+  },
+  "style_prompt": {
+    "description": "风格指令 (user message, 自然语言控制, 仅 V2.5-TTS)",
+    "type": "string",
+    "default": ""
+  },
+  "dialect": {
+    "description": "方言/风格标签 (如 东北话/开心, 仅 V2.5-TTS)",
+    "type": "string",
+    "default": ""
+  },
+  "voice_design_presets": {
+    "description": "音色描述预设列表 (仅 VoiceDesign, 勾选启用)",
+    "type": "template_list",
+    "templates": {
+      "voice_desc": {
+        "name": "音色预设",
+        "title_field": "name",
+        "items": {
+          "name": {
+            "description": "预设名称 (必填)",
+            "type": "string"
+          },
+          "desc": {
+            "description": "音色描述",
+            "type": "text",
+            "default": "a young male tone"
+          },
+          "active": {
+            "description": "启用 (同时只生效一个)",
+            "type": "bool",
+            "default": false
+          }
+        }
+      }
+    }
+  },
+  "clone_ref_audio": {
+    "description": "参考音频 (仅 VoiceClone, 支持 mp3/wav)",
+    "type": "file",
+    "file_types": ["mp3", "wav"]
+  },
+  "auto_tts_on_llm": {
+    "description": "LLM 回复自动转语音 (0=关闭, 1=全部语音, 中间值为概率)",
+    "type": "float",
+    "default": 0.0,
+    "slider": {
+      "min": 0,
+      "max": 1,
+      "step": 0.05
+    }
+  },
+  "voice_only": {
+    "description": "仅发送语音（去掉文本）",
+    "type": "bool",
+    "default": false
+  }
+}
