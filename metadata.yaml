@@ -1,4 +1,5 @@
 name: mimo_tts
+display_name: MiMo TTS 语音合成
 desc: 接入小米 MiMo V2.5 TTS 系列模型，支持基础 TTS、音色设计、音色克隆
 version: 0.1.0
 author: AmginLily
